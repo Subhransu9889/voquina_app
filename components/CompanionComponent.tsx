@@ -94,16 +94,17 @@ const CompanionComponent = ({companionId, subject, topic, name, userName, userIm
       <section className='flex gap-8 max-sm:flex-col'>
         <div className='companion-section'>
           <div className='companion-avatar' style={{backgroundColor: getSubjectColor(subject)}}>
-            <div  className={cn('absolute trasition-opacity duration-1000', callStatus === CallStatus.FINISHED || callStatus === CallStatus.INACTIVE ? 'opacity-1001' : 'opacity-0', callStatus === CallStatus.CONNECTING && 'opacity-100 animate-pulse')}>
-              <Image src={`/icons/${subject}.svg`} alt={subject} width={150} height={150} className='max-sm:w-fit'/>
+            <div className={cn('absolute transition-opacity duration-1000', callStatus === CallStatus.FINISHED || callStatus === CallStatus.INACTIVE ? 'opacity-1001' : 'opacity-0', callStatus === CallStatus.CONNECTING && 'opacity-100 animate-pulse')}>
+              <Image src={`/icons/${subject}.svg`} alt={subject} width={150} height={150} className="max-sm:w-fit" />
             </div>
-            <div className={cn('absolute transition-opacity duration-1000', callStatus === CallStatus.ACTIVE ? 'opacity-100' : 'opactiy-0')}>
-              <Lottie lottieRef={lottieRef}
+            <div className={cn('absolute transition-opacity duration-1000', callStatus === CallStatus.ACTIVE ? 'opacity-100': 'opacity-0')}>
+              <Lottie
+                lottieRef={lottieRef}
                 animationData={soundwaves}
                 autoplay={false}
-                className='companion-lottie'
+                className="companion-lottie"
               />
-            </div>
+              </div>
           </div>
           <p className='font-bold text-2xl'>{name}</p>
         </div>
@@ -125,8 +126,8 @@ const CompanionComponent = ({companionId, subject, topic, name, userName, userIm
           </button>
         </div>
       </section>
-      <section className='transcript'>
-        <div className='transcript-message no-scrollbar'>
+      <section className='transcript relative h-[200px] overflow-hidden'>
+        <div className='transcript-message no-scrollbar overflow-y-auto h-full pr-2'>
           {messages.map((message, index) => {
             if(message.role === 'assistant'){
               return (
@@ -141,7 +142,7 @@ const CompanionComponent = ({companionId, subject, topic, name, userName, userIm
             }
           })}
         </div>
-        {/* <div className='transcript-fade'></div> */}
+        <div className='transcript-fade pointer-events-none absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-white to-transparent'/>
       </section>
     </section>
   )
