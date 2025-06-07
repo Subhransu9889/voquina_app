@@ -7,9 +7,10 @@ import {
 } from "@/components/ui/accordion"
 import { currentUser } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation';
-import { getUserCompanion, getUserSession } from '@/lib/actions/companion.actions';
+import { getAllBookmarkedCompanions, getUserCompanion, getUserSession } from '@/lib/actions/companion.actions';
 import Image from 'next/image';
 import CompanionsList from '@/components/CompanionsList';
+import { Bookmark } from 'lucide-react';
 
 const Profile = async() => {
   const user = await currentUser();
@@ -17,6 +18,7 @@ const Profile = async() => {
   if(!user) redirect('/sign-in');
   const companions = await getUserCompanion(user.id);
   const sessionHistory = await getUserSession(user.id);
+  const bookmarks = await getAllBookmarkedCompanions(user.id);
 
   return (
     <main className='min-lg:w-3/4'>
@@ -54,19 +56,25 @@ const Profile = async() => {
        </div>
       </section>
       <Accordion type="multiple">
-  <AccordionItem value="recent">
-    <AccordionTrigger className='text-2xl font-bold'>Recent Sessions</AccordionTrigger>
-    <AccordionContent>
-      <CompanionsList title='Recent Sessions' companions={sessionHistory}/>
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value='companions'>
-  <AccordionTrigger className='text-2xl font-bold'>My Companions{`(${companions.length})`}</AccordionTrigger>
-  <AccordionContent>
-      <CompanionsList title='My Companions' companions={companions}/>
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>
+      <AccordionItem value="bookmark">
+          <AccordionTrigger className='text-2xl font-bold'>Bookmarked Sessions</AccordionTrigger>
+          <AccordionContent>
+            <CompanionsList title='Bookmarked Sessions' companions={bookmarks}/>
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="recent">
+          <AccordionTrigger className='text-2xl font-bold'>Recent Sessions</AccordionTrigger>
+          <AccordionContent>
+            <CompanionsList title='Recent Sessions' companions={sessionHistory}/>
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value='companions'>
+        <AccordionTrigger className='text-2xl font-bold'>My Companions{`(${companions.length})`}</AccordionTrigger>
+        <AccordionContent>
+            <CompanionsList title='My Companions' companions={companions}/>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </main>
   )
 }
