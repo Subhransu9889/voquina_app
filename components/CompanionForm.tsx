@@ -34,7 +34,8 @@ const formSchema = z.object({
   topic: z.string().min(1,  {message: 'Topic is required.'}),
   voice: z.string().min(1,  {message: 'Voice is required.'}),
   style: z.string().min(1,  {message: 'Style is required.'}),
-  duration: z.coerce.number().min(1,  {message: 'Duration is required.'}),
+  duration: z.coerce.number().min(1,  {message: 'Minimum duration is 1 minute.'})
+                             .max(22, 'Maximum duration is 22 minutes.'),
 })
 
 const CompanionForm = () => {
@@ -198,7 +199,7 @@ const CompanionForm = () => {
             <FormItem>
               <FormLabel>Estimated session duration in minutes</FormLabel>
               <FormControl>
-                <Input type="number" placeholder="15" {...field} className="input"/>
+                <Input type="number" placeholder="15" {...field} min={1} max={22} className="input"/>
               </FormControl>
               <FormMessage />
             </FormItem>
