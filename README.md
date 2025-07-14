@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Voquina – AI Learning Companion 📚🧠
 
-## Getting Started
+Voquina is a modern **AI-powered Learning Management System (LMS)** SaaS application built from scratch to empower learners through interactive, real-time sessions. Featuring a conversational **voice AI agent**, robust **subscription management**, and a seamless **learning experience**, Voquina is your smart companion in education.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🔐 **User Authentication** using Clerk
+- 💳 **Subscriptions & Payments** via Stripe
+- 🧠 **Real-Time Learning Sessions** with Vapi (Voice AI)
+- 📈 **Usage Tracking & Monitoring** using Sentry
+- 🖼️ **Polished UI Components** with shadcn/ui
+- 🧾 **Database & APIs** managed via Supabase
+- 🎨 **Modern UI Design** using Tailwind CSS
+- ✅ **Schema Validation** with Zod
+- 🔧 **Type-Safe Development** using TypeScript
+- ⚡ **Blazing Fast Performance** with Next.js
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧩 Tech Stack
 
-## Learn More
+| Tech        | Purpose                                                                                       |
+|-------------|-----------------------------------------------------------------------------------------------|
+| **Next.js** | Framework for SSR, API routes, and full-stack development                                     |
+| **Clerk**   | Authentication, user management, billing & subscription control                               |
+| **Stripe**  | Secure and flexible payment processing                                                        |
+| **Supabase**| Backend-as-a-service (BaaS) for real-time data, auth, storage, and Postgres DB                |
+| **Vapi**    | AI voice interface for real-time, multilingual, low-latency conversations                     |
+| **Tailwind CSS** | Utility-first CSS framework for flexible, rapid UI development                          |
+| **shadcn/ui** | Pre-built components built on Radix UI and Tailwind CSS for polished UI design             |
+| **Sentry**  | Error tracking and performance monitoring in real time                                        |
+| **Zod**     | Runtime schema validation for APIs and forms                                                  |
+| **TypeScript** | Strong typing system for safer and scalable code                                           |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![home page](public/Screenshorts/Home_page.png)
+![profile section](public/Screenshorts/profile_section.png)
+![account page](public/Screenshorts/account_page.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📦 Installation
 
-## Deploy on Vercel
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/Subhransu9889/voquina_app
+   cd voquina
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 💖 Built with Love
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Crafted passionately using **Next.js**, **Supabase**, **Stripe**, and a touch of **AI magic** ✨  
+This project is open-source and made to inspire learning and creation.  
+Made with 💻 + ❤️ by Subransu
